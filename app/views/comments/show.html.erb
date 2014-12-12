@@ -1,0 +1,4 @@
+#intended to be a partial
+<%= @comment.content %> - <%= @comment.creator %>
+<span><%= link_to 'edit', edit_article_path(@article) %></span>
+<span><%= link_to 'delete', article_path(@article), :method => :delete %></span>

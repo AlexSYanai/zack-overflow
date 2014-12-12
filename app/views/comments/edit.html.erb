@@ -1,0 +1,12 @@
+<h1>Edit <%= @comment.title %></h1>
+<ul>
+  <%= form_for @comment do |f| %>
+    <li>
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+    </li>
+    <li>
+      <%= f.submit %>
+    </li>
+  <% end %>
+</ul>
