@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     if @current_user && @current_user.authenticate(params[:session][:user_password])
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to posts_path
     else
       flash[:error] = "Invalid Login."
       redirect_to login_path
@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, :notice => 'Logged Out!'
+    redirect_to root_path
   end
 end
