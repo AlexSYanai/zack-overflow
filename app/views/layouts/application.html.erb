@@ -10,7 +10,7 @@
   <div class="container" >
 <% if current_user %>
 <nav class="nav">
-<%= link_to 'Logout', logout_path, method: 'DELETE'  %>
+<%= link_to 'Logout', logout_path, method: 'GET'  %>
 <%= link_to 'make a new post', new_post_path %>
 </nav>
 <% else %>
