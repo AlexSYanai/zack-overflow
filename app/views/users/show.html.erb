@@ -1,0 +1,17 @@
+<h1><%= @user.username %></h1>
+
+
+<h3>Posts</h3>
+<ul>
+  <% @user.posts.each do |post| %>
+    <li><%= link_to "#{post.title}", post_path(post) %></li>
+  <% end %>
+</ul>
+
+<h3>Comments</h3>
+<ul>
+  <% @user.comments.each do |comment| %>
+    <li><p><strong>Post Commented On:</strong> <%= link_to "#{comment.post.title}", post_path(comment.post) %></p>
+    <p><strong>Comment:</strong> <%= comment.content %></li>
+  <% end %>
+</ul>
