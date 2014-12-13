@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(version: 20141212154450) do
   enable_extension "plpgsql"
 
   create_table "categories", force: true do |t|
-    t.string   "title"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "comments", force: true do |t|
     t.string   "content"
-    t.integer  "creator_id"
+    t.integer  "user_id"
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -33,23 +33,22 @@ ActiveRecord::Schema.define(version: 20141212154450) do
   create_table "posts", force: true do |t|
     t.string   "title"
     t.string   "content"
-    t.integer  "creator_id"
+    t.integer  "user_id"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string   "title"
+    t.string   "role"
     t.string   "username"
     t.string   "password_digest"
-    t.boolean  "is_admin",        default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "votes", force: true do |t|
-    t.boolean  "up_down_vote", default: true
+    t.integer  "value"
     t.integer  "user_id"
     t.integer  "votable_id"
     t.string   "votable_type"
