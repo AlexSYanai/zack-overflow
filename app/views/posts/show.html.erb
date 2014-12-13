@@ -8,6 +8,6 @@
 </p>
 
 <p>
-  <strong>aurthor:</strong>
-  <%= @post.creator.username %>
+  <strong>author:</strong>
+  <%= User.find(@post.user_id).username %>
 </p>
