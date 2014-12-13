@@ -1,10 +1,9 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.string :title
+      t.string :role
       t.string :username
       t.string :password_digest
-      t.boolean :is_admin, default: false
 
       t.timestamps
     end
