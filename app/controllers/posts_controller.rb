@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
       @post = Post.new(post_params)
       # @post.creator = params[:session][:username] NOT FUNCTIONAL, PROBABLY CREATOR DOESNT WORRK
-      @post.creator_id = current_user.id
+      @post.user_id = current_user.id
       # params[:post][:category] = @category.id
       @post.save
       redirect_to post_path(@post)
@@ -44,4 +44,3 @@ class PostsController < ApplicationController
 
 
 end
-
