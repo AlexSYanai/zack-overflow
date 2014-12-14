@@ -14,17 +14,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    # binding.pry
-
-      params[:post]
-
-
-      @post = Post.new(post_params)
-      # @post.creator = params[:session][:username] NOT FUNCTIONAL, PROBABLY CREATOR DOESNT WORRK
-      @post.creator_id = current_user.id
-      # params[:post][:category] = @category.id
-      @post.save
-      redirect_to post_path(@post)
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    @post.save
+    redirect_to post_path(@post)
   end
 
   def destroy
@@ -39,9 +32,8 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit( :content, :creator, :title)
+      params.require(:post).permit(:id, :content, :user_id, :title)
     end
 
 
 end
-
