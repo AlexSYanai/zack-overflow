@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DbcOverflow</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="container" >
-<% if current_user %>
-<nav class="nav">
-<%= link_to 'Logout', logout_path, method: 'GET'  %>
-<%= link_to 'make a new post', new_post_path %>
-</nav>
-<% else %>
-<nav>
-<a href="/users/new">Signup</a> | <a href="/login">Login</a>
-</nav>
-<% end %>
-<%= yield %>
-</div>
-</body>
+  <head>
+    <title>DbcOverflow</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container" >
+      <% if current_user %>
+      <nav class="nav">
+        <%= link_to 'Logout', logout_path, method: 'GET'  %>
+        <%= link_to 'make a new post', new_post_path %>
+      </nav>
+      <% else %>
+      <nav>
+      <a href="/users/new">Signup</a> | <a href="/login">Login</a>
+      </nav>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
 </html>

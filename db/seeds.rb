@@ -1,16 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-# User.destroy_all
-# Category.destroy_all
-# Post.destroy_all
+30.times { User.create(role: "user", username: Faker::Internet.user_name, password: 'password') }
+30.times { User.all.sample.posts << Post.new(content: Faker::Lorem.paragraph, title: Faker::Lorem.sentence ) }
+300.times { User.all.sample.comments << Comment.new(content: Faker::Company.bs, post: Post.all.sample) }
 
-category1 = Category.create(title:"Snowboards")
-user1 = User.create(username:"Zack", password:"muffins")
+50.times { Comment.all.sample.votes << Vote.new(voter: User.all.sample, value: -1) }
+50.times { Comment.all.sample.votes << Vote.new(voter: User.all.sample, value: 1) }
 
-post1 = Post.create(content:"Heyy you guys", creator_id:user1.id, category_id:category1.id)
-post2 = Post.create(content:"Heyy youasdfasdf guys", creator_id:user1.id, category_id:category1.id)
+50.times { Post.all.sample.votes << Vote.new(voter: User.all.sample, value: -1) }
+50.times { Post.all.sample.votes << Vote.new(voter: User.all.sample, value: 1) }
+10.times { Category.create(name: Faker::Commerce.department(2,true)) }
