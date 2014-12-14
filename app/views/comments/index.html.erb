@@ -1,0 +1,12 @@
+<%= link_to 'create new comment', new_post_comment_path(@comment) %>
+
+<ul>
+  <% @article.each do |article| %>
+    <li><%= link_to article.title, article_path(article) %></li>
+  <% end %>
+</ul>
+
+#intended to be a partial
+<h2><%=link_to(@comment.content, post_comment_path(@comment))%></h2>
+<span><%= link_to 'edit', edit_post_comment_path(@comment) %></span>
+<span><%= link_to 'delete', post_comment_path(@comment), :method => :delete %></span>
