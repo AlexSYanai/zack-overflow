@@ -1,10 +1,4 @@
-<!-- need to fix -->
-<h2><%=link_to(@comment.content, post_comment_path(@comment))%></h2>
-
-<span><%= link_to 'edit', edit_post_comment_path(@comment) %></span>
-<span><%= link_to 'delete', post_comment_path(@comment), :method => :delete %></span>
-
-<%= link_to 'Create new comment', new_post_comment_path %>
+ <!-- need to fix link_to on comments#new form, links to wrong place -->
 <ul>
   <% @comments.each do |comment| %>
     <li><%= comment.content %></li>
