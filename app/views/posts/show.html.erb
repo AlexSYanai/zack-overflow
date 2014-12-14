@@ -11,4 +11,5 @@
   <strong>author:</strong>
   <%= User.find(@post.user_id).username %>
   <%= @post.comments.count %><p>comments</p>
+  <%= link_to 'Comment', new_post_comment_path(@post) %>
 </p>
