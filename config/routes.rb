@@ -17,7 +17,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get ('/categories/all') => 'categories#all'
   resources :categories
 
 end
