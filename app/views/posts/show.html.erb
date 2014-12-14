@@ -11,3 +11,6 @@
   <strong>author:</strong>
   <%= User.find(@post.user_id).username %>
 </p>
+
+<button><%= link_to "Update", edit_article_path(@article)%></button>
+<%= button_to "Delete", article_path(@article), method: :delete %>
