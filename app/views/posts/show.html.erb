@@ -10,4 +10,6 @@
 <p>
   <strong>author:</strong>
   <%= User.find(@post.user_id).username %>
+  <%= @post.comment.count %><p>comments</p>
 </p>
+<!-- <%= button_to "New", action: "new" %> -->
