@@ -3,8 +3,9 @@ class Post < ActiveRecord::Base
   validates  :content, presence: true, uniqueness: true
 
   belongs_to :author, class_name: "User", foreign_key: "user_id"
-  # belongs_to :category
 
+  has_many :post_categories
+  has_many :categories, :through => :post_categories
   has_many :comments, :dependent => :destroy
   has_many :votes, as: :votable
 end
