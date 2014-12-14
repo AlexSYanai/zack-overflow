@@ -1,5 +1,6 @@
-<ul>
-  <% @comments.each do |comment| %>
-    <li><%= comment.content %></li>
-  <% end %>
+<% @comments.each do |comment| %>
+<h2><%=link_to(comment.content, post_comment_path) %></h2>
+<h3><%= comment.content %></h3>
+<h5>posted on: <%=comment.created_at %></h5>
+<% end %>
 </ul>
