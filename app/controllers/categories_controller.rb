@@ -1,11 +1,12 @@
 class CategoriesController < ApplicationController
+  before_filter :is_admin?, :except => [:index, :show]
 
-  def all
+  def index
     @categories = Category.all
   end
 
   def show
-    @posts = Post.where(category_id: params[:id])
+    @category = Category.find(params[:id])
   end
 
   def new
@@ -14,24 +15,31 @@ class CategoriesController < ApplicationController
 
 
   def create
-    @category = Category.new(category_params)
+    @category = Category.create(category_params)
     if @category.save
-      redirect_to('/categories/all')
+      redirect_to categories_path(@category)
+    else
+      render :new
     end
   end
 
-  # def edit
-  # end
+  def edit
+    @category = Category.find(params[:id])
+  end
 
-  # def update
-  # end
+  def update
+    @category = Category.find(params[:id])
+    if @category.update_attributes(category_params)
+      redirect_to categories_path(@category)
+    else
+      render :edit
+  end
 
-  # Saving this for Admins.
-  # def destroy
-  #   @category = Category.find(params[:id])
-  #   @category.destroy
-  #   redirect_to root_path
-  # end
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to root_path
+  end
 
   private
     def category_params
