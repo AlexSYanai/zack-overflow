@@ -3,5 +3,6 @@
   <%= f.text_field :title %>
   <%= f.label :content %>
   <%= f.text_field :content %>
+  <%= f.select :category_id, Category.all.collect {|p| [ p.name, p.id ] } %><br>
   <%= f.submit "Submit" %>
 <% end %>
