@@ -13,8 +13,12 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
-  resources :posts do
-    resources :comments
+  concern :votable do
+    resources :votes, only: :create
+  end
+
+  resources :posts, concerns: :votable do
+    resources :comments, concerns: :votable
   end
 
   get ('/categories/all') => 'categories#all'
