@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+<<<<<<< HEAD
   include CategoryHelper
   before_filter :is_admin?, except: [:new, :create, :index, :show, :edit, :update, :destroy]
 
@@ -6,12 +7,16 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def show
+    @category = Category.find(params[:id])
+  end
+
   def new
     @category = Category.new
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = Category.create(category_params)
     if @category.save
       redirect_to categories_path(@category)
     else
@@ -36,10 +41,6 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.destroy
     redirect_to root_path
-  end
-
-  def show
-    @category = Category.find(params[:id])
   end
 
   private
