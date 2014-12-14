@@ -1,6 +1,7 @@
 class Category < ActiveRecord::Base
-  validates :title, presence: true
+  validates :name, presence: true
 
-  # has_many :posts
+  has_many :post_categories
+  has_many :posts, :through => :post_categories
 
 end
