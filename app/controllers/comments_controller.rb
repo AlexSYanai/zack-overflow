@@ -15,7 +15,10 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
-    redirect_to post_path(@post)
+    if @comment.save
+      redirect_to post_path(@post)
+    else
+      render :new
   end
 
   def edit
