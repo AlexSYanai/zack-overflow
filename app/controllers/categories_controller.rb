@@ -1,6 +1,4 @@
 class CategoriesController < ApplicationController
-<<<<<<< HEAD
-  include CategoryHelper
   before_filter :is_admin?, except: [:new, :create, :index, :show, :edit, :update, :destroy]
 
   def index
