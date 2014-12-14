@@ -11,4 +11,14 @@ describe PostsController do
     end
   end
 
+  describe "#create" do
+    it "creates the post if valid params" do
+      session[:user_id] = test_user.id
+      expect {
+        post :create,
+        :post => { title: 'my title', content: 'my content' }
+      }.to change { Post.count }.by(1)
+    end
+  end
+
 end
