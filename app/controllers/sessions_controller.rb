@@ -4,19 +4,19 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: params[:session][:username])
+    user = User.find_by(username: params[:username])
 
-    if user && user.authenticate(params[:session][:password])
+    if user && user.authenticate(params[:password])
       login(user)
       redirect_to posts_path
     else
-      flash.now[:error] = "Invalid login"
-      render :new
+      flash[:error] = "Invalid login"
+      redirect_to login_path
     end
   end
 
   def destroy
-    session[:user_id] = nil
+    logout
     redirect_to root_path
   end
 end
