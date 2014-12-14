@@ -12,4 +12,9 @@
   <%= User.find(@post.user_id).username %>
   <%= @post.comments.count %><p>comments</p>
   <%= link_to 'Comment', new_post_comment_path(@post) %>
+  <ul>
+    <%= @post.comments.each do |comment| %>
+      <li> <%=comment.content %></li>
+    <% end %>
+  </ul>
 </p>
