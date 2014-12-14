@@ -1,0 +1,7 @@
+<%= link_to 'Create new comment', new_post_comment_path %>
+
+<ul>
+  <% @comments.each do |comment| %>
+    <li><%= comment.content %></li>
+  <% end %>
+</ul>

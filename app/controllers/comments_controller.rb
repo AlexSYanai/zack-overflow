@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.update_attributes(user_id: session[:user_id])
     @comment.save
-      redirect_to post_path(@post)
+      redirect_to post_comments_path(@comment)
   end
 
   def edit
