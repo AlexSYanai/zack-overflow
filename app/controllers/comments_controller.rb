@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    @comments = Comment.order('updated_at DESC')
   end
 
   def show
@@ -14,9 +14,7 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(comment_params)
-    @comment.update_attributes(user_id: session[:user_id])
-    @comment.save
+    @comment = @post.comments.build(comment_params)
       redirect_to post_path(@post)
   end
 

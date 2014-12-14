@@ -9,8 +9,11 @@
 
 <p>
   <strong>author:</strong>
-  <%= User.find(@post.user_id).username %>
-</p>
-
-<%= link_to "Update", edit_post_path(@post)%>
-<%= button_to "Delete", post_path(@post), method: :delete %>
+  <%= @post.comments.count %><p>comments</p>
+  <%= link_to 'Comment', new_post_comment_path(@post) %>
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <ol> <%=comment.content %> </ol>
+    <% end %>
+  </ul>
+  <%= link_to 'Back to Posts', posts_path %>

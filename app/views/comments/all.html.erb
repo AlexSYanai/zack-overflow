@@ -1,7 +1,0 @@
-<%= link_to 'create new comment', new_article_path(@comment) %>
-
-<ul>
-  <% @article.each do |article| %>
-    <li><%= link_to article.title, article_path(article) %></li>
-  <% end %>
-</ul>
