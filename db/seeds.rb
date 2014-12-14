@@ -7,3 +7,4 @@
 
 50.times { Post.all.sample.votes << Vote.new(voter: User.all.sample, value: -1) }
 50.times { Post.all.sample.votes << Vote.new(voter: User.all.sample, value: 1) }
+10.times { Category.create(name: Faker::Commerce.department(2,true)) }
