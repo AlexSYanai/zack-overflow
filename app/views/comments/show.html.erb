@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 <h2><%=link_to(@comment.content, post_comment_path)%></h2>
 <span><%= link_to 'edit', edit_post_comment_path %></span>
 <span><%= link_to 'delete', post_comment_path, method: "delete" %></span>
+=======
+<%= @comment.content %> - <%= User.find(@comment.user_id) %>
+<span><%= link_to 'edit', edit_path(@comment) %></span>
+<span><%= link_to 'delete', article_path(@article), :method => :delete %></span>
+>>>>>>> 61ec922e33e2c63959f3b1d2716752862e6e5d2f
