@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get ('/categories/all') => 'categories#all'
   resources :categories
 
 end
