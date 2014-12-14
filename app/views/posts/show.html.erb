@@ -10,7 +10,5 @@
 <p>
   <strong>author:</strong>
   <%= User.find(@post.user_id).username %>
+  <%= @post.comment.count %><p>comments</p>
 </p>
-
-<%= link_to "Update", edit_post_path(@post)%>
-<%= button_to "Delete", post_path(@post), method: :delete %>
