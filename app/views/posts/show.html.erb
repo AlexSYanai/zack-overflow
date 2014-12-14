@@ -8,6 +8,9 @@
 </p>
 
 <p>
-  <strong>aurthor:</strong>
-  <%= @post.creator.username %>
+  <strong>author:</strong>
+  <%= User.find(@post.user_id).username %>
 </p>
+
+<%= link_to "Update", edit_post_path(@post)%>
+<%= button_to "Delete", post_path(@post), method: :delete %>
