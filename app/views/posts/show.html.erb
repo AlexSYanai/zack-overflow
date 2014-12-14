@@ -1,15 +1,19 @@
 <p>
   <strong>Title:</strong>
-  <%= @post.title %>
+  <%= @post.title %><br>
+  <strong>by:</strong>
+  <%= User.find(@post.user_id).username %>
 </p>
+
 <p>
   <strong>Content:</strong>
   <%= @post.content %>
 </p>
 
-<p>
-  <strong>author:</strong>
-  <%= @post.comments.count %><p>comments</p>
+  <%= link_to "Update", edit_post_path(@post)%>
+  <%= button_to "Delete", post_path(@post), method: :delete %>
+
+  <p>comments: <%= @post.comments.count %> </p>
   <%= link_to 'Comment', new_post_comment_path(@post) %>
   <ul>
     <% @post.comments.each do |comment| %>
