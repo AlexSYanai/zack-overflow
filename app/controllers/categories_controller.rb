@@ -5,8 +5,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
-    @posts = @category.posts
+    @posts = Post.where(category_id: params[:id])
   end
 
   def new
