@@ -28,6 +28,12 @@ describe PostsController do
         :post => { title: 'my title', content: 'my content' }
       }.to change { Post.count }.by(1)
     end
+
+
+    it "should redirect to a page showing the created post" do
+      post :create, :post => { title: 'my title', content: 'my content' }
+      expect(response).to redirect_to post_path(Post.all.last.id)
+    end
   end
 
 end
