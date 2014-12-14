@@ -9,7 +9,6 @@
 
 <p>
   <strong>author:</strong>
-<<<<<<< HEAD
   <%= @post.comments.count %><p>comments</p>
   <%= link_to 'Comment', new_post_comment_path(@post) %>
   <ul>
@@ -18,9 +17,3 @@
     <% end %>
   </ul>
   <%= link_to 'Back to Posts', posts_path %>
-=======
-  <%= User.find(@post.user_id).username %>
-  <%= @post.comments.count %><p>comments</p>
-  <%= link_to 'Comment', new_post_comment_path(@post) %>
->>>>>>> 61ec922e33e2c63959f3b1d2716752862e6e5d2f
-</p>

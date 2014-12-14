@@ -15,11 +15,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
-<<<<<<< HEAD
       redirect_to post_path(@post)
-=======
-      redirect_to post_comments_path
->>>>>>> 61ec922e33e2c63959f3b1d2716752862e6e5d2f
   end
 
   def edit
