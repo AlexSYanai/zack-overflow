@@ -3,7 +3,6 @@
 
   <h5><%=link_to(post.title, post_path(post))%></h5>
   <p><%= post.content %>
-  <p>by: <%= User.find(post.user_id).username %> on <%= post.created_at %><br><br>
   <%= post.comments.count %> comments<br>
   <%= link_to 'Comment', new_post_comment_path(post) %></p>
   <p><%= post.total_points %> points</p>
