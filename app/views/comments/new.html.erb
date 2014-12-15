@@ -1,11 +1,13 @@
 <%= form_for [@post, @comment] do |f| %>
   <ul>
-    <li>
+    <span  class="ten columns">
+    <div>
       <%= f.label :content %>
-      <%= f.text_area :content %>
-    </li>
-    <li>
-      <%= f.submit %>
-    </li>
+      <%= f.text_area :content, :class => 'u-full-width' %>
+    </div>
+    <div>
+      <%= f.submit "Submit", :class => 'button-primary' %>
+    </div>
+  </span>
   </ul>
 <% end %>

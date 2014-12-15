@@ -1,3 +1,4 @@
+<span class="eleven columns">
 <p>
   <h5><%= @post.title %></h5>
   <p>Posted By: <%= User.find(@post.user_id).username %></p>
@@ -15,3 +16,4 @@
         <span id="comment-upvote"><%= button_to '&#x25B2'.html_safe, upvote_post_comment_path(post_id: @post.id, id: comment.id), method: :post, remote: true %></span>
         <span id="comment-downvote"><%= button_to '&#x25BC'.html_safe, downvote_post_comment_path(post_id: @post.id, id: comment.id), method: :post, remote: true %></span></p><br>
       <% end %>
+</span>

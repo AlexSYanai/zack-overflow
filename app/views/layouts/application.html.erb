@@ -10,6 +10,7 @@
   <body>
     <div class="container" >
       <% if current_user %>
+      <span class="twelve columns">
       <nav class="nav_right">
         <%= link_to current_user.username, current_user %> |
         <%= link_to 'Logout', logout_path, method: 'GET'%>
@@ -23,6 +24,7 @@
       <nav>
       <a href="/users/new">Signup</a> | <a href="/login">Login</a>
       </nav>
+      </span>
       <% end %>
       <%= yield %>
     </div>
