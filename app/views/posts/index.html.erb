@@ -1,6 +1,5 @@
 
 <% @posts.each do |post| %>
-<<<<<<< HEAD
 
   <h5><%=link_to(post.title, post_path(post))%></h5>
   <p><%= post.content %>
@@ -9,11 +8,4 @@
   <p><%= post.total_points %> points</p>
   <%= button_to 'upvote', upvote_post_path(post), method: :post %>
   <%= button_to 'downvote', downvote_post_path(post), method: :post %>
-=======
-  <h2><%=link_to(post.title, post_path(post))%></h2>
-  <h3><%= post.content %></h4>
-  <h5>posted on: <%= post.created_at %></h5>
-  <h4> <%= post.comments.count %> comments<h4>
-    <%= link_to 'Comment', new_post_comment_path(post) %>
->>>>>>> 32f469079622d2a4d88b2c01586806425cc07cf0
 <% end %>
