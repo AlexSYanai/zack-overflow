@@ -37,6 +37,20 @@ class CommentsController < ApplicationController
     redirect_to root_path
   end
 
+  #Voting
+
+  def upvote
+    @comment = Comment.find(params[:id])
+    @comment.votes.create(value: 1, voter: current_user)
+    redirect_to(:back)
+  end
+
+  def downvote
+    @comment = Comment.find(params[:id])
+    @comment.votes.create(value: -1, voter: current_user)
+    redirect_to(:back)
+  end
+
     private
     def comment_params
       params.require(:comment).permit(:content, :creator_id, :post_id)

@@ -14,7 +14,17 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
 
   resources :posts do
-    resources :comments
+    member do
+      post 'upvote'
+      post 'downvote'
+    end
+
+    resources :comments do
+      member do
+        post 'upvote'
+        post 'downvote'
+      end
+    end
   end
 
   get ('/categories/all') => 'categories#all'
