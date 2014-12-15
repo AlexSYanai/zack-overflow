@@ -8,6 +8,5 @@
   <div id="post-points" data-id="<%= post.id %>"><%= post.total_points %> points</div>
   <%= button_to '&#x25B2'.html_safe, upvote_post_path(post), method: :post, remote: true %>
   <%= button_to '&#x25BC'.html_safe, downvote_post_path(post), method: :post, remote: true %><br><br><br><br>
-
 <% end %>
 </span>
