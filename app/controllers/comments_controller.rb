@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
       redirect_to post_path(@post)
     else
       render :new
+    end
   end
 
   def edit
@@ -54,7 +55,8 @@ class CommentsController < ApplicationController
     redirect_to(:back)
   end
 
-    private
+  private
+
     def comment_params
       params.require(:comment).permit(:content, :creator_id, :post_id)
     end
