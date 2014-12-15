@@ -6,7 +6,7 @@
   <p>by: <%= User.find(post.user_id).username %> on <%= post.created_at %><br><br>
   <%= post.comments.count %> comments<br>
   <%= link_to 'Comment', new_post_comment_path(post) %></p>
-  <p><%= post.total_points %> points</p>
-  <%= button_to 'upvote', upvote_post_path(post), method: :post %>
-  <%= button_to 'downvote', downvote_post_path(post), method: :post %>
+  <div id="post-points" data-id="<%= post.id %>"><%= post.total_points %> points</div>
+  <%= button_to 'upvote', upvote_post_path(post), method: :post, remote: true %>
+  <%= button_to 'downvote', downvote_post_path(post), method: :post, remote: true %>
 <% end %>
