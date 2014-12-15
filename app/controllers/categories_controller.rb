@@ -1,6 +1,10 @@
 class CategoriesController < ApplicationController
+<<<<<<< HEAD
   include CategoryHelper
   before_filter :is_admin?, except: [:index, :show]
+=======
+  before_filter :is_admin?, :except => [:index, :show]
+>>>>>>> added all actions for categories controller, move on to create views
 
   def index
     @categories = Category.all
@@ -33,7 +37,10 @@ class CategoriesController < ApplicationController
       redirect_to categories_path(@category)
     else
       render :edit
+<<<<<<< HEAD
     end
+=======
+>>>>>>> added all actions for categories controller, move on to create views
   end
 
   def destroy
