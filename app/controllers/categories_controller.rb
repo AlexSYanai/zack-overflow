@@ -1,14 +1,10 @@
 class CategoriesController < ApplicationController
   include CategoryHelper
-  before_filter :is_admin?, except: [:index, :show]
 
+  before_filter :is_admin?, except: [:new, :create, :index, :show, :edit, :update, :destroy]
 
   def index
     @categories = Category.all
-  end
-
-  def show
-    @category = Category.find(params[:id])
   end
 
   def new
@@ -43,8 +39,18 @@ class CategoriesController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @category = Category.find(params[:id])
+
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to root_path
+
+  end
+
   private
     def category_params
-      params.require(:category).permit(:title)
+      params.require(:category).permit(:name)
     end
 end
