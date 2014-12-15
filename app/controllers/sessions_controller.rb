@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: params[:username])
+    user = User.find_by(username: params[:session][:user_name])
 
-    if user && user.authenticate(params[:password])
+    if user && user.authenticate(params[:session][:user_password])
       login(user)
       redirect_to posts_path
     else

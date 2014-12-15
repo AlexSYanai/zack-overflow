@@ -4,6 +4,7 @@ class Comment < ActiveRecord::Base
   belongs_to :post
   belongs_to :author, class: "User", foreign_key: 'user_id'
 
-  # belongs_to :parent, class_name: "Comment", foreign_key: "parent_id"
-  # has_many :children, class_name: "Comment"
+  def total_points
+    self.votes.pluck(:value).reduce(:+) || 0
+  end
 end

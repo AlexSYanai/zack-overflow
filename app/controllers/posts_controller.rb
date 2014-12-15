@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @post  = Post.all
-    @posts = @post.order("updated_at")
+    @posts = Post.order("updated_at")
   end
 
   def new
@@ -43,10 +42,22 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  # Voting
+
+  def upvote
+    @post = Post.find(params[:id])
+    @post.votes.create(value: 1, voter: current_user)
+    redirect_to(:back)
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    @post.votes.create(value: -1, voter: current_user)
+    redirect_to(:back)
+  end
+
   private
     def post_params
       params.require(:post).permit(:id, :content, :user_id, :title, :category_id)
     end
-
-
 end

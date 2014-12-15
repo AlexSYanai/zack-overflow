@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    @comments = Comment.order('updated_at DESC')
   end
 
   def show
@@ -14,10 +14,8 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(comment_params)
-    @comment.update_attributes(user_id: session[:user_id])
-    @comment.save
-      redirect_to post_path(@post)
+    @comment = @post.comments.create(comment_params)
+    redirect_to post_path(@post)
   end
 
   def edit
@@ -37,6 +35,20 @@ class CommentsController < ApplicationController
     comment = Comment.find(params[:id])
     comment.destroy
     redirect_to root_path
+  end
+
+  #Voting
+
+  def upvote
+    @comment = Comment.find(params[:id])
+    @comment.votes.create(value: 1, voter: current_user)
+    redirect_to(:back)
+  end
+
+  def downvote
+    @comment = Comment.find(params[:id])
+    @comment.votes.create(value: -1, voter: current_user)
+    redirect_to(:back)
   end
 
     private

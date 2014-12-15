@@ -1,16 +1,21 @@
 <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-<p>
-  <strong>Content:</strong>
+  <h5><%= @post.title %></h5><br>
+  <strong>Posted By:</strong>
+  <%= User.find(@post.user_id).username %><br><br>
   <%= @post.content %>
 </p>
 
-<p>
-  <strong>author:</strong>
-  <%= User.find(@post.user_id).username %>
-</p>
+  <div class="button"><%= link_to "Update", edit_post_path(@post)%></div>
+  <%= button_to "Delete", post_path(@post), method: :delete %>
 
-<%= link_to "Update", edit_post_path(@post)%>
-<%= button_to "Delete", post_path(@post), method: :delete %>
+  <p><%= @post.comments.count %> comments</p>
+  <div class="button"><%= link_to 'Comment', new_post_comment_path(@post) %></div>
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <ol> <%=comment.content %> </ol>
+      <p><%= comment.total_points %></p>
+      <span><%= button_to 'upvote', upvote_post_comment_path(post_id: @post.id, id: comment.id), method: :post%></span>
+      <span><%= button_to 'downvote', downvote_post_comment_path(post_id: @post.id, id: comment.id), method: :post %></span>
+    <% end %>
+  </ul>
+  <%= link_to 'Back to Posts', posts_path %>
