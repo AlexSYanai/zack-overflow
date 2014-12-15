@@ -5,6 +5,6 @@ class Comment < ActiveRecord::Base
   belongs_to :author, class: "User", foreign_key: 'user_id'
 
   def total_points
-    self.votes.pluck(:value).reduce(:+)
+    self.votes.pluck(:value).reduce(:+) || 0
   end
 end
