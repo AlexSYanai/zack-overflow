@@ -159,9 +159,17 @@ a:hover {
   float:left;
 }
 
+.comment_body {
+  position: absolute;
+  width: auto;
+  border-bottom: 1px solid #AEE2F2;
+  border-left: 1px solid #AEE2F2;
+}
+
 .comment_body p{
-  float:left;
-  width:auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
 }
 /* Nav
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
