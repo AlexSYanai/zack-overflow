@@ -3,7 +3,6 @@
 
   <div id="post_index_link"><h5><%=link_to(post.title, post_path(post))%></h5></div>
   <p><%= post.content %>
-  <p>by: <%= User.find(post.user_id).username %> on <%= post.created_at %><br><br>
   <%= post.comments.count %> comments<br>
   <%= link_to 'Comment', new_post_comment_path(post) %></p>
   <div id="post-points" data-id="<%= post.id %>"><%= post.total_points %> points</div>
