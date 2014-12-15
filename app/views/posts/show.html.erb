@@ -6,9 +6,13 @@
   <%= @post.comments.count %> comments
 </p>
 
-  <div class="button"><%= link_to "Update", edit_post_path(@post)%></div>
+  <% if content_belongs_to?(User.find(session[:user_id]), @post) %>
+    <div class="button"><%= link_to "Update", edit_post_path(@post) %></div>
+  <% end %>
   <div class="button"><%= link_to "Comment", new_post_comment_path(@post) %></div>
-  <%= button_to "Delete", post_path(@post), method: :delete %>
+  <% if content_belongs_to?(User.find(session[:user_id]), @post) %>
+    <%= button_to "Delete", post_path(@post), method: :delete %>
+  <% end %>
 
       <% @post.comments.each do |comment| %>
         <div class="comment_body"><p><%=comment.content %></p></div><br><br>
