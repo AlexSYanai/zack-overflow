@@ -15,5 +15,4 @@
         <p><div id="comment-points" data-id="<%= comment.id %>" class="votes"><%= comment.total_points %> points</div><br>
         <span id="comment-upvote"><%= button_to '&#x25B2'.html_safe, upvote_post_comment_path(post_id: @post.id, id: comment.id), method: :post, remote: true %></span>
         <span id="comment-downvote"><%= button_to '&#x25BC'.html_safe, downvote_post_comment_path(post_id: @post.id, id: comment.id), method: :post, remote: true %></span></p><br>
-      <% end %>
-</span>
+      <% end %></span>

@@ -1,13 +1,13 @@
 <span class="eleven columns">
 <% @posts.each do |post| %>
 
-  <h5><%=link_to(post.title, post_path(post))%></h5>
+  <div id="post_index_link"><h5><%=link_to(post.title, post_path(post))%></h5></div>
   <p><%= post.content %>
   <p>by: <%= User.find(post.user_id).username %> on <%= post.created_at %><br><br>
   <%= post.comments.count %> comments<br>
   <%= link_to 'Comment', new_post_comment_path(post) %></p>
   <div id="post-points" data-id="<%= post.id %>"><%= post.total_points %> points</div>
   <%= button_to '&#x25B2'.html_safe, upvote_post_path(post), method: :post, remote: true %>
-  <%= button_to '&#x25BC'.html_safe, downvote_post_path(post), method: :post, remote: true %>
+  <%= button_to '&#x25BC'.html_safe, downvote_post_path(post), method: :post, remote: true %><br><br><br><br>
 <% end %>
 </span>

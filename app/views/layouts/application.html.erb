@@ -7,7 +7,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
     <div class="container" >
       <% if current_user %>
       <span class="twelve columns">
@@ -26,6 +25,7 @@
       </nav>
       </span>
       <% end %>
+    <body>
       <%= yield %>
     </div>
     <div id="zach_logo"><%= image_tag 'logo.png'%></div>
