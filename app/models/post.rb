@@ -10,6 +10,6 @@ class Post < ActiveRecord::Base
   has_many :votes, as: :votable
 
   def total_points
-    self.votes.pluck(:value).reduce(:+)
+    self.votes.pluck(:value).reduce(:+) || 0
   end
 end
