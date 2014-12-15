@@ -158,6 +158,11 @@ a:hover {
 .votes {
   float:left;
 }
+
+.comment_body p{
+  float:left;
+  width:auto;
+}
 /* Nav
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .nav_right {
