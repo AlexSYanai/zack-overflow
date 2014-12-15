@@ -12,4 +12,8 @@ class Post < ActiveRecord::Base
   def total_points
     self.votes.pluck(:value).reduce(:+) || 0
   end
+
+  def self.search(query)
+    where("title like ?", "%#{query}%")
+  end
 end

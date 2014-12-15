@@ -1,1 +1,10 @@
-<h3>Zack Overflow!</h3>
+<h1>Zack Overflow!</h1>
+<br>
+<br>
+<br>
+<h3>Search</h3>
+
+<%= form_tag(posts_path, :method => "get", class: "navbar-form", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], class: "u-full-width", placeholder: "What do you want to know about Zack Mance?" %>
+ <button class="button-primary" type="submit">Submit</button>
+ <% end %>
