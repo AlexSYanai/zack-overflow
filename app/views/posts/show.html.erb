@@ -13,6 +13,9 @@
   <ul>
     <% @post.comments.each do |comment| %>
       <ol> <%=comment.content %> </ol>
+      <p><%= comment.total_points %></p>
+      <span><%= button_to 'upvote', upvote_post_comment_path(post_id: @post.id, id: comment.id), method: :post%></span>
+      <span><%= button_to 'downvote', downvote_post_comment_path(post_id: @post.id, id: comment.id), method: :post %></span>
     <% end %>
   </ul>
   <%= link_to 'Back to Posts', posts_path %>
