@@ -148,7 +148,13 @@ a:hover {
 
 /* Nav
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-nav {
+.nav_right {
+  margin-bottom: 2.5%;
+  font-size: 16px;
+  float:right;
+}
+
+.nav_left {
   margin-bottom: 2.5%;
   font-size: 16px;
 }
