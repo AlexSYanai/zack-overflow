@@ -50,13 +50,8 @@ class PostsController < ApplicationController
 
   def upvote
     @post = Post.find(params[:id])
-    @post.votes.create(value: 1, voter: current_user)
-
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.js
-    end
-
+    @post.votes.create(value: 1, user_id: current_user)
+    render plain: "#{@post.total_points}  points"
   end
 
   def downvote
