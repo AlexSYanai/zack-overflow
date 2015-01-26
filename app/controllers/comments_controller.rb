@@ -51,7 +51,8 @@ class CommentsController < ApplicationController
 
   def downvote
     @comment = Comment.find(params[:id])
-    @comment.votes.create(value: -1, voter: current_user)
+    current_user.votes.find_by(votable_id: @comment.id).destroy
+    render plain: "#{@comment.total_points}  points"
   end
 
   private
