@@ -7,7 +7,7 @@
 <h4>Posts</h4>
 <ul>
   <% @user.posts.each do |post| %>
-    <li><%= link_to "#{post.title}", post_path(post) %> <small>Created On <%= post.created_at %></small></li>
+    <li><%= link_to "#{post.title}", post_path(post) %> <small>Posted on <%= post.created_at.strftime("%m-%d-%y at %H:%M") %></small></li>
   <% end %>
 </ul>
 
