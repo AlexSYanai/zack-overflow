@@ -11,9 +11,6 @@ class User < ActiveRecord::Base
   end
 
   def total_points
-    total = []
-    total << Post.where(author: self)
-    total << Comment.where(author: self)
-    total.flatten.map(&:total_points).reduce(:+) || 0
+    total = Post.where(author: self).count + Comment.where(author: self).count || 0
   end
 end
