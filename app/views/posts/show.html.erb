@@ -14,9 +14,9 @@
     <%= button_to "Delete", post_path(@post), method: :delete %>
   <% end %>
 
-      <% @post.comments.each do |comment| %>
-        <div class="comment_body"><p><%=comment.content %></p></div><br><br>
-        <p><div id="comment-points" data-id="<%= comment.id %>" class="votes"><%= comment.total_points %> points</div><br>
-        <span id="comment-upvote"><%= button_to '&#x25B2'.html_safe, upvote_post_comment_path(post_id: @post.id, id: comment.id), method: :post, remote: true %></span>
-        <span id="comment-downvote"><%= button_to '&#x25BC'.html_safe, downvote_post_comment_path(post_id: @post.id, id: comment.id), method: :post, remote: true %></span></p><br>
-      <% end %></span>
+  <% @post.comments.each do |comment| %>
+    <div class="comment_body"><p><%=comment.content %></p></div><br><br>
+    <p><div id="comment-points-<%= comment.id %>" data-id="<%= comment.id %>" class="votes"><%= comment.total_points %> points</div><br>
+    <button class="comment-upvote" data-id="<%= comment.id %>" data-post="<%= @post.id %>">Up</button>
+    <button class="comment-downvote" data-id="<%= comment.id %>" data-post="<%= @post.id %>">Down</button></p><br>
+  <% end %></span>

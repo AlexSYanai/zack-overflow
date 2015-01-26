@@ -46,21 +46,12 @@ class CommentsController < ApplicationController
   def upvote
     @comment = Comment.find(params[:id])
     @comment.votes.create(value: 1, voter: current_user)
-
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.js
-    end
+    render plain: "#{@comment.total_points}  points"
   end
 
   def downvote
     @comment = Comment.find(params[:id])
     @comment.votes.create(value: -1, voter: current_user)
-
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.js
-    end
   end
 
   private
