@@ -1,3 +1,4 @@
+<div class="new-post"><%= link_to 'New Post ', new_post_path %></div>
 <span class="eleven columns">
   <% @posts.each do |post| %>
     <div id="post_index_link"><h5><%=link_to(post.title, post_path(post))%></h5></div>

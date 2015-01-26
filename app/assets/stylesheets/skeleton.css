@@ -172,20 +172,24 @@ a:hover {
   margin-left: 5px;
 }
 
-#post_index_link {
-
-}
 /* Nav
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .nav_right {
   margin-bottom: 2.5%;
-  font-size: 16px;
+  font-size: 1.6rem;
   float:right;
 }
 
 .nav_left {
   margin-bottom: 2.5%;
-  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+.new-post{
+  float:right;
+  font-size: 2rem;
+  border:1px solid #999;
+  border-radius: 4px;
 }
 
 #zach_logo{
